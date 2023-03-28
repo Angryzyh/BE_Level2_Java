@@ -24,8 +24,8 @@ public class son1 extends father1 {
     public static void main(String[] args) {
         gf1 a = new son1(1,"小趴菜");
         father1 b = new son1(2, "大趴菜");
-        a.hello();
-        b.hello();
+        a.speak();
+        b.speak();
         b.hello(10);
         System.out.println("*************************************************");
         a.hello1();

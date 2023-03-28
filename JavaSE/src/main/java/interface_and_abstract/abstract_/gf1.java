@@ -6,7 +6,7 @@ public abstract class gf1 {
 
     //普通代码块
     {
-        System.out.println("gf1代码块");
+        System.out.println("gf1普通代码块");
     }
 
     //静态代码块
@@ -29,12 +29,15 @@ public abstract class gf1 {
     public void hello() {
         System.out.println(this.getClass().getSimpleName()+":hello");
     }
+
     protected void speak() {
         System.out.println(this.getClass().getSimpleName()+":说话");
     }
+
     void run() {
         System.out.println(this.getClass().getSimpleName()+":跑步");
     }
+
     //父类私有方法子类无法调用
     private void eat() {
         System.out.println(this.getClass().getSimpleName()+":吃饭");

@@ -52,5 +52,9 @@ class http {
         http.setStatusCode(HttpStatus.状态2xx.getStatus());
         http.setStatus(HttpStatus.状态3xx);
         System.out.println("http = " + http);
+
+        System.out.println(HttpStatus.状态3xx);
+        String str = String.valueOf(HttpStatus.状态3xx);
+        System.out.println(str.equals("状态3xx"));
     }
 }

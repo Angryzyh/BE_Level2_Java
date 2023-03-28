@@ -23,18 +23,19 @@
         <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <junit.version>4.13.2</junit.version>
+        <junit.version>5.8.2</junit.version>
         <lombok.version>1.18.24</lombok.version>
     </properties>
 
     <dependencies>
+
     </dependencies>
 
    <dependencyManagement>
        <dependencies>
            <dependency>
-               <groupId>junit</groupId>
-               <artifactId>junit</artifactId>
+               <groupId>org.junit.jupiter</groupId>
+               <artifactId>junit-jupiter</artifactId>
                <version>${junit.version}</version>
            </dependency>
            <dependency>
