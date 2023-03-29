@@ -7,10 +7,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 泛型的 协变(作为生产者,∵无法添加只能get获取)
- * 与
- * 逆变(作为消费者,∵有下限,∴可以添加,但是获取的时候不知道类型,对外别人不能get,只能add消费)
- */
+ * 协变就是用一个窄类型替代宽类型
+ * 逆变则用宽类型覆盖窄类型。
+ *
+ * 协变(泛型上限)
+ * 作为生产者, List<? extends T>
+ * ∵List内的类型都是T或者T的子类,
+ * ∴add()添加的时候无法确定子类类型(如都按照上限类型添加,但往往里面有的数据类型是T的子类,就会出现向下转型异常错误),因而在添加的时候就会编译报错
+ *   get()获取可以获取 ,获取的类型是T及其父类不需要强转,因为子类转父类 类型自动转换
+ *
+ * 逆变(泛型下限)
+ * 作为消费者,  List<? super T>
+ * ∵List内部的类型 都是T或者T的父类,
+ * ∴add()可以添加,这是因为添加都可以按照下限类型添加, 数据都可向上自动转型
+ *  但是get()获取的时候,如果都按照 下限T获取, 会出现类型由T 向T的父类转换 会出现类型转换异常
+ *
+ *  */
 public class TestGeneric {
     /**
      * 协变 covariant
@@ -29,8 +41,11 @@ public class TestGeneric {
          */
         //集合get()编译不报错,运行报错
         Number number = numbers.get(0);
+        Object object = numbers.get(0);
+        Integer integer = (Integer) numbers.get(0);
         System.out.println("number = " + number);
-        //集合add()编译报错
+        System.out.println("object = " + object);
+        //集合add()编译报错  规定了类型上限Number 但是add添加的时候,并不知道具体是哪个类型,会直接编译报错
         //numbers.add(1);
     }
 
@@ -42,10 +57,13 @@ public class TestGeneric {
     void inversion() {
         // 逆变 设置了 泛型下限为Number类型
         List<? super Number> numbers = new ArrayList<>();
+        // 因为设置了泛型下限, 所以可以添加, 这是因为 子类转型父类,向上转型可以自动转换
         numbers.add(100);
         System.out.println("numbers = " + numbers);
         //逆变和协变一样，放宽了对数据类型的约束，但是代价是 不能按照泛型类型读取元素
         Object object = numbers.get(0);
+        Number number = (Number) numbers.get(0);
+        Integer integer = (Integer) numbers.get(0);
         System.out.println("object = " + object);
     }
 
@@ -53,7 +71,7 @@ public class TestGeneric {
     @DisplayName("数组协变")
     void arrayCovariant() {
         Number[] numbers = new Integer[10];
-        //标准的 编译看右边,运行看左边
+        //标准的 编译看左边,运行看右边
         numbers[0] = 1.0;
         System.out.println(" numbers[0] = " +  numbers[0]);
     }

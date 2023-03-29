@@ -39,4 +39,6 @@ public class CreateThreadByImplementRunnable implements Runnable {
         Thread thread = new Thread(()->System.out.println(Thread.currentThread().getName() + ":线程在执行!!"));
         thread.start();
     }
+
 }
+

@@ -16,7 +16,7 @@ import java.lang.annotation.*;
     CONSTRUCTOR,   构造方法
     LOCAL_VARIABLE,  局部变量
     ANNOTATION_TYPE,  注解
-    PACKAGE,      包
+    PACKAGE,          包
     TYPE_PARAMETER,  泛型
     TYPE_USE;      全部可用
 * */

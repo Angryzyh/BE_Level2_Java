@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.LinkedHashSet;
 
 //Collections工具类方法
 @SuppressWarnings("all")
@@ -45,5 +46,6 @@ public class Collection_ {
         //9. removeAll(list): 删除多个元素
         list.removeAll(list2);
         System.out.println("list = " + list);
+
     }
 }
