@@ -57,6 +57,20 @@ public class FastReflect {
 
         System.out.println("通过Class类对象获取[属性对象]:============================================================");
         Field fieldName = clazz.getDeclaredField("name");
+
+        // int modifiers = fieldName.getModifiers();  //获取字段修饰符
+       /* PUBLIC: 1
+        PRIVATE: 2
+        PROTECTED: 4
+        STATIC: 8
+        FINAL: 16
+        SYNCHRONIZED: 32
+        VOLATILE: 64
+        TRANSIENT: 128
+        NATIVE: 256
+        INTERFACE: 512
+        ABSTRACT: 1024
+        STRICT: 2048*/
         Object value = fieldName.get(o1);
         System.out.println("fieldName = " + value);
         System.out.println("field = " + fieldName);  //private java.lang.String reflect.pojo.Cat.name

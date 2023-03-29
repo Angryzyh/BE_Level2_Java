@@ -11,11 +11,12 @@ public enum HttpStatus {
     private String str;
     private Integer status;
 
+    HttpStatus() {
+    }
+
     HttpStatus(Integer status,String str) {
         this.str = str;
         this.status = status;
-    }
-    HttpStatus() {
     }
 
     public String getStr() {
